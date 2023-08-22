@@ -14,7 +14,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: "http://localhost:5174",
     methods: ["GET", "POST"],
   },
 });
@@ -25,6 +25,7 @@ io.on("connection", (socket) => {
   socket.on("join_room", (data) => {
     socket.join(data);
     console.log(`User With ID: ${socket.id} joined room: ${data}`);
+    
   });
 
   socket.on("send_message", (data) => {
